@@ -1,21 +1,16 @@
 <script setup>
-// Importamos 'profile' para el texto y 'mindsets' para las tarjetas
 import { profile, mindsets } from '../data/portfolio'
-
-// Como tu objeto profile no tenía la propiedad 'summary', 
-// usamos una descripción por defecto basada en lo que ya escribiste.
-const defaultSummary = "I am a Systems and Computing Engineering student at Pontificia Universidad Javeriana Cali, focused on building scalable full-stack applications. Currently advancing my hands-on development experience while maintaining a strong academic foundation."
 </script>
 
 <template>
   <section id="about" class="about">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title" data-aos="fade-up">About Me</h2>
       <div class="about-grid">
-        <div class="about-card">
+        <div class="about-card" data-aos="fade-right">
           <h3 class="about-card-title">Professional Summary</h3>
           <p class="about-text">
-            {{ profile.summary || defaultSummary }}
+            {{ profile.summary }}
           </p>
           <p class="about-text">
             My approach is centered on optimizing performance and user experience while 
@@ -28,7 +23,13 @@ const defaultSummary = "I am a Systems and Computing Engineering student at Pont
         </div>
 
         <div class="skills-grid">
-          <div v-for="item in mindsets" :key="item.title" class="skill-card">
+          <div 
+            v-for="(item, index) in mindsets" 
+            :key="item.title" 
+            class="skill-card"
+            data-aos="fade-left"
+            :data-aos-delay="index * 100"
+          >
             <div class="skill-icon">{{ item.icon }}</div>
             <div>
               <h4 class="skill-title">{{ item.title }}</h4>

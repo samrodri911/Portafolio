@@ -5,7 +5,7 @@ import { profile } from '../data/portfolio'
 <template>
   <section id="contact" class="contact-section">
     <div class="container">
-      <div class="contact-content">
+      <div class="contact-content" data-aos="fade-up">
         <h2 class="contact-title">
           Let's build something <br/>
           <span class="contact-highlight">remarkable</span> together.
@@ -23,18 +23,28 @@ import { profile } from '../data/portfolio'
       </div>
 
       <div class="contact-socials">
-        <a :href="profile.linkedin" target="_blank" class="social-card">
+        <a 
+          :href="profile.linkedin" 
+          target="_blank" 
+          class="social-card"
+          data-aos="fade-right"
+        >
           <span class="social-icon">💼</span>
           <div>
             <p class="social-label">LINKEDIN</p>
             <p class="social-handle">@samuel-rodriguez</p>
           </div>
         </a>
-        <a :href="profile.github" target="_blank" class="social-card">
+        <a 
+          :href="profile.github" 
+          target="_blank" 
+          class="social-card"
+          data-aos="fade-left"
+        >
           <span class="social-icon">📂</span>
           <div>
             <p class="social-label">GITHUB</p>
-            <p class="social-handle">@sam-solar-dev</p>
+            <p class="social-handle">@samrodri911</p>
           </div>
         </a>
       </div>

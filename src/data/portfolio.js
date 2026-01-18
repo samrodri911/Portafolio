@@ -8,11 +8,11 @@ export const profile = {
   education: 'Engineering Student',
   email: 'samrosolar2007@gmail.com',
   location: 'Cali, Colombia',
-  resumeUrl: '#', // Pon aquí el link de Drive/Cloudinary de tu CV
-  socials: {
-    github: 'https://github.com/samrodri911',
-    linkedin: 'https://linkedin.com' // Agrega tu link real
-  }
+  resumeUrl: '#',
+  // CORREGIDO: Las propiedades estaban dentro de 'socials', pero las usabas directamente en profile
+  github: 'https://github.com/samrodri911',
+  linkedin: 'https://www.linkedin.com/in/samuel-rodriguez-aa0a4036a', // Agrega tu link real
+  summary: "I am a Systems and Computing Engineering student at Pontificia Universidad Javeriana Cali, focused on building scalable full-stack applications. Currently advancing my hands-on development experience while maintaining a strong academic foundation."
 }
 
 export const mindsets = [
@@ -38,18 +38,18 @@ export const languages = [
   { name: 'TypeScript', description: 'Type Safety & Scalability' },
   { name: 'C++', description: 'Performance & Core Logic' },
   { name: 'SQL', description: 'Database Modeling' }
-];
+]
 
 export const frameworks = [
   { name: 'React', description: 'Modern UI development with Hooks, Context API, and Tailwind CSS.' },
-  { name: 'Next.JS', description: 'Scalable server-side applications with modular architecture.' },
+  { name: 'Next.js', description: 'Scalable server-side applications with modular architecture.' },
   { name: 'Supabase', description: 'BaaS for database management, Auth, and Real-time subscriptions.' },
   { name: 'Git & CI/CD', description: 'Version control and automated deployment pipelines.' }
-];
+]
 
 export const otherKnowledge = [
   'RESTful APIs', 'Security / Agile', 'Software Architecture', 'UI/UX Principles', 'Docker', 'Unit Testing'
-];
+]
 
 export const projects = [
   {

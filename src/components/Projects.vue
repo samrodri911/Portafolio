@@ -6,19 +6,20 @@ import ProjectCard from './ProjectCard.vue'
 <template>
   <section id="projects" class="projects-section">
     <div class="container">
-      <div class="projects-header">
-        <span class="section-label">PORTFOLIO</span>
+      <div class="projects-header" data-aos="fade-up">
         <h2 class="section-title-large">Featured Projects</h2>
-        <p class="section-description">
+        <p class="section-description"><br>
           A showcase of my recent work in full-stack development and architectural system design.
         </p>
       </div>
-      
+
       <div class="projects-grid-large">
         <ProjectCard 
-          v-for="project in projects" 
+          v-for="(project, index) in projects" 
           :key="project.title" 
-          :project="project" 
+          :project="project"
+          data-aos="fade-up"
+          :data-aos-delay="index * 100"
         />
       </div>
     </div>

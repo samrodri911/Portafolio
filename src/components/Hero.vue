@@ -1,7 +1,6 @@
 <script setup>
 import { profile } from '../data/portfolio'
 
-// Reutilizamos la función de scroll para los botones del Hero
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId)
   if (element) {
@@ -14,22 +13,37 @@ const scrollToSection = (sectionId) => {
   <section id="home" class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="availability">
+        <div class="availability" data-aos="fade-right">
           <span class="status-dot"></span>
           AVAILABLE FOR WORK
         </div>
         
-        <h1 class="hero-title">
+        <h1 class="hero-title" data-aos="fade-right" data-aos-delay="100">
           Samuel<br/>
           <span class="hero-name">Rodríguez</span> Solarte
         </h1>
         
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" data-aos="fade-right" data-aos-delay="200">
           {{ profile.role }} & {{ profile.education }} bridging the gap between theoretical excellence and scalable code.
         </p>
 
-        <div class="hero-buttons">
-          <button @click="scrollToSection('projects')" class="btn-primary">
+        <div class="hero-stats" data-aos="fade-right" data-aos-delay="300">
+          <div class="stat-item">
+            <div class="stat-number">2+</div>
+            <div class="stat-label">Years Coding</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">2+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+        </div>
+
+        <div class="hero-buttons" data-aos="fade-right" data-aos-delay="400">
+          <button @click="scrollToSection('projects')" class="btn-primary btn-glow">
             <span class="btn-icon">📁</span>
             View Projects
           </button>
@@ -40,7 +54,7 @@ const scrollToSection = (sectionId) => {
         </div>
       </div>
 
-      <div class="hero-image">
+      <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
         <div class="code-preview">
           <div class="code-header">
             <div class="code-dots">
@@ -71,6 +85,8 @@ const scrollToSection = (sectionId) => {
             <div class="code-line">};</div>
           </div>
         </div>
+        
+        
       </div>
     </div>
   </section>
