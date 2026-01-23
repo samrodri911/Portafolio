@@ -1,11 +1,22 @@
 <script setup>
-import Home from './components/Home.vue'
+import Navbar from './components/Navbar.vue'
+import Hero from './components/Hero.vue'
+import About from './components/About.vue'
+import Projects from './components/Projects.vue'
+import Skills from './components/Skills.vue'
+import Contact from './components/Contact.vue'
+import Footer from './components/Footer.vue'
+import AnimatedBg from './components/AnimatedBg.vue'
 </script>
 
 <template>
-  <Home />
+  <div class="portfolio">
+    <AnimatedBg /> <Navbar />
+    <Hero />
+    <About />
+    <Projects />
+    <Skills />
+    <Contact />
+    <Footer />
+  </div>
 </template>
-
-<style>
-/* Sin estilos aquí, todo está en Home.vue */
-</style>
