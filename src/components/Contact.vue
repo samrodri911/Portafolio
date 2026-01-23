@@ -1,5 +1,8 @@
 <script setup>
 import { profile } from '../data/portfolio'
+import { useLanguage } from '../composables/useLanguage'
+
+const { t } = useLanguage()
 </script>
 
 <template>
@@ -7,12 +10,11 @@ import { profile } from '../data/portfolio'
     <div class="container">
       <div class="contact-content" data-aos="fade-up">
         <h2 class="contact-title">
-          Let's build something <br/>
-          <span class="contact-highlight">remarkable</span> together.
+          {{ t.contact.title }} <br/>
+          <span class="contact-highlight">{{ t.contact.highlight }}</span> {{ t.contact.together }}
         </h2>
         <p class="contact-text">
-          I am currently open to new opportunities and collaborations. Whether you have a question 
-          or just want to say hi, my inbox is always open!
+          {{ t.contact.text }}
         </p>
         
         <div class="contact-info">
@@ -61,15 +63,15 @@ import { profile } from '../data/portfolio'
 </template>
 
 <style scoped>
-/* Contenedor para los logos para darles un tamaño uniforme y centrado */
+/* Contenedor para los logos */
 .logo-wrapper {
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary); /* Esto hará que los logos sean verdes como tu portafolio */
-  transition: var(--transition);
+  color: var(--primary);
+  transition: 0.3s ease;
 }
 
 .logo-wrapper svg {
@@ -77,7 +79,6 @@ import { profile } from '../data/portfolio'
   height: 100%;
 }
 
-/* Ajuste específico para el logo de Gmail que está solo */
 .gmail-logo {
   width: 30px;
   height: 30px;
@@ -93,6 +94,25 @@ import { profile } from '../data/portfolio'
 
 .social-card:hover .logo-wrapper {
   transform: scale(1.1);
-  color: #ffffff; /* El logo se pone blanco al pasar el mouse */
+  color: #ffffff;
+}
+
+/* Estilos de texto para Contact */
+.contact-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.contact-highlight {
+  color: var(--primary);
+}
+
+.contact-text {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
 }
 </style>

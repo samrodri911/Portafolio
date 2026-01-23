@@ -1,22 +1,25 @@
 <script setup>
-import { languages, frameworks, otherKnowledge } from '../data/portfolio'
+import { otherKnowledge } from '../data/portfolio' // Solo dejamos otherKnowledge si no lo quieres traducir
 import SkillBadge from './SkillBadge.vue'
+import { useLanguage } from '../composables/useLanguage'
+
+const { t } = useLanguage()
 </script>
 
 <template>
   <section id="skills" class="skills-section">
     <div class="container">
       <div class="skills-header" data-aos="fade-up">
-        <h2 class="section-title-large">Skills & Education</h2> 
+        <h2 class="section-title-large">{{ t.skills.title }}</h2> 
       </div>
       <br>
       <div class="skills-content">
         <div class="skill-category" data-aos="fade-up">
-          <h3 class="category-title">Languages</h3>
+          <h3 class="category-title">{{ t.skills.languages }}</h3>
           <div class="category-grid">
             <div 
-              v-for="(lang, index) in languages" 
-              :key="lang.name" 
+              v-for="(lang, index) in t.skills.languagesItems" 
+              :key="index" 
               class="skill-item"
               data-aos="zoom-in"
               :data-aos-delay="index * 50"
@@ -28,11 +31,11 @@ import SkillBadge from './SkillBadge.vue'
         </div>
 
         <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="category-title">Tools & Frameworks</h3>
+          <h3 class="category-title">{{ t.skills.toolsFrameworks }}</h3>
           <div class="category-grid-two">
             <div 
-              v-for="(fw, index) in frameworks" 
-              :key="fw.name" 
+              v-for="(fw, index) in t.skills.frameworksItems" 
+              :key="index" 
               class="skill-item-large"
               data-aos="zoom-in"
               :data-aos-delay="index * 50"
@@ -44,11 +47,11 @@ import SkillBadge from './SkillBadge.vue'
         </div>
 
         <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="category-title">Other Knowledge</h3>
+          <h3 class="category-title">{{ t.skills.otherKnowledge }}</h3>
           <div class="knowledge-tags">
             <SkillBadge 
               v-for="(tag, index) in otherKnowledge" 
-              :key="tag" 
+              :key="index" 
               :text="tag"
               data-aos="flip-up"
               :data-aos-delay="index * 30"
@@ -59,3 +62,7 @@ import SkillBadge from './SkillBadge.vue'
     </div>
   </section>
 </template>
+
+<style scoped>
+/* Tus estilos se mantienen iguales */
+</style>

@@ -1,48 +1,61 @@
 <script setup>
-import { profile, mindsets } from '../data/portfolio'
+import { profile } from '../data/portfolio'
+import { useLanguage } from '../composables/useLanguage'
+import { computed } from 'vue'
 
-// Mapeamos los iconos para no depender de emojis en la data
-const getIcon = (title) => {
-  const t = title.toLowerCase();
-  if (t.includes('arch') || t.includes('clean')) return 'M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2Z'; // Icono Doc
-  if (t.includes('performance') || t.includes('scalable')) return 'M13 2L3 14h9l-1 8 10-12h-9l1-8z'; // Icono Rayo
-  return 'M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c1.091 0 2.115.245 3 .683A8.967 8.967 0 0 1 12 18c1.091 0 2.115.245 3 .683A8.967 8.967 0 0 1 18 18c1.091 0 2.115.245 3 .683v-14.25A8.987 8.987 0 0 0 18 3.75c-1.052 0-2.062.18-3 .512V6.042'; // Icono Libro
+const { t } = useLanguage()
+
+// Convertimos el objeto de mindsets en un array para el v-for
+const mindsetsArray = computed(() => [
+  t.value.mindsets.engineering,
+  t.value.mindsets.problemSolver,
+  t.value.mindsets.fullStack
+])
+
+// Mapeamos los iconos basándonos en el índice
+const getIcon = (index) => {
+  if (index === 0) return 'M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2Z'; // Doc/Engineering
+  if (index === 1) return 'M13 2L3 14h9l-1 8 10-12h-9l1-8z'; // Rayo/Problem Solver
+  return 'M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c1.091 0 2.115.245 3 .683A8.967 8.967 0 0 1 12 18c1.091 0 2.115.245 3 .683A8.967 8.967 0 0 1 18 18c1.091 0 2.115.245 3 .683v-14.25A8.987 8.987 0 0 0 18 3.75c-1.052 0-2.062.18-3 .512V6.042'; // Libro/Full-stack
 }
 </script>
 
 <template>
   <section id="about" class="about">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">About Me</h2>
+      <h2 class="section-title" data-aos="fade-up">{{ t.about.title }}</h2>
+      
       <div class="about-grid">
         <div class="about-card" data-aos="fade-right">
-          <h3 class="about-card-title">Professional Summary</h3>
+          <h3 class="about-card-title">{{ t.about.professionalSummary }}</h3>
           <p class="about-text">
-            {{ profile.summary }}
+            {{ t.about.summary }}
           </p>
           <p class="about-text">
-            My approach is centered on optimizing performance and user experience while 
-            maintaining clean, maintainable codebases. I thrive on solving complex architectural 
-            problems and learning emerging technologies.
+            {{ t.about.approach }}
           </p>
           
           <a :href="profile.resumeUrl" target="_blank" class="btn-download-premium">
-            <span>Download CV</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>{{ t.about.downloadCV }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
           </a>
         </div>
 
         <div class="skills-grid">
           <div 
-            v-for="(item, index) in mindsets" 
-            :key="item.title" 
+            v-for="(item, index) in mindsetsArray" 
+            :key="index" 
             class="skill-card-modern"
             data-aos="fade-left"
             :data-aos-delay="index * 100"
           >
             <div class="skill-icon-box">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path :d="getIcon(item.title)"></path>
+                <path :d="getIcon(index)"></path>
               </svg>
             </div>
             <div class="skill-info">
@@ -57,7 +70,7 @@ const getIcon = (title) => {
 </template>
 
 <style scoped>
-/* Estilos para el Botón de CV (Adiós al texto azul feo) */
+/* Estilos para el Botón de CV */
 .btn-download-premium {
   display: inline-flex;
   align-items: center;
@@ -76,7 +89,7 @@ const getIcon = (title) => {
 
 .btn-download-premium:hover {
   background: var(--primary);
-  color: var(--bg-dark);
+  color: #0f1310;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(125, 255, 184, 0.2);
 }
@@ -117,5 +130,37 @@ const getIcon = (title) => {
   background: var(--primary-muted);
   color: var(--primary);
   border-radius: 10px;
+}
+
+.skill-title {
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.skill-description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.about-card-title {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.about-text {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .skill-card-modern {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 </style>
