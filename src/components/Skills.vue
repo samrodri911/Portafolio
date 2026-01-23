@@ -12,7 +12,7 @@ import SkillBadge from './SkillBadge.vue'
       <br>
       <div class="skills-content">
         <div class="skill-category" data-aos="fade-up">
-          <h3 class="category-title">💻 Languages</h3>
+          <h3 class="category-title">Languages</h3>
           <div class="category-grid">
             <div 
               v-for="(lang, index) in languages" 
@@ -28,7 +28,7 @@ import SkillBadge from './SkillBadge.vue'
         </div>
 
         <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="category-title">🛠️ Tools & Frameworks</h3>
+          <h3 class="category-title">Tools & Frameworks</h3>
           <div class="category-grid-two">
             <div 
               v-for="(fw, index) in frameworks" 
@@ -44,7 +44,7 @@ import SkillBadge from './SkillBadge.vue'
         </div>
 
         <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="category-title">📚 Other Knowledge</h3>
+          <h3 class="category-title">Other Knowledge</h3>
           <div class="knowledge-tags">
             <SkillBadge 
               v-for="(tag, index) in otherKnowledge" 

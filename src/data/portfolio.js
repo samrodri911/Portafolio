@@ -17,17 +17,14 @@ export const profile = {
 
 export const mindsets = [
   {
-    icon: '⚡',
     title: 'Engineering Mindset',
     description: 'Applying rigorous engineering principles to ensure robust, production-ready code.'
   },
   {
-    icon: '🎯',
     title: 'Problem Solver',
     description: 'Deep diving into technical challenges to find elegant, efficient solutions.'
   },
   {
-    icon: '🚀',
     title: 'Full-Stack Capability',
     description: 'End-to-end development from fluid user interfaces to optimized database queries.'
   }
@@ -58,15 +55,13 @@ export const projects = [
     tech: ['React', 'Node.js', 'Supabase'],
     github: 'https://github.com/samrodri911/Inventario.git',
     live: 'https://inventario-ymfk.vercel.app/login',
-    image: 'inventory-preview.jpg',
-    icon: '📊'
+    image: 'inventario.png',
   },
   {
     title: 'Game-Ants Engine',
     description: 'A performance-focused video game emphasizing Object-Oriented Programming (OOP), manual memory management, and efficient algorithm design for complex game mechanics.',
     tech: ['C++', 'OOP', 'Algorithms'],
     github: 'https://github.com/samrodri911/Game-Ants.git',
-    image: 'game-preview.jpg',
-    icon: '🎮'
+    image: 'hormigas.png'
   }
 ]

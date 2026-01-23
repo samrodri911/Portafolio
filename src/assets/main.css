@@ -81,7 +81,7 @@ section {
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -109,7 +109,7 @@ section {
 /* 5. HERO & ABOUT */
 .hero-grid, .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: 4rem;
   align-items: center;
 }
@@ -945,4 +945,46 @@ section {
   .hero-subtitle {
     font-size: 1.1rem;
   }
+}
+
+/* --- AJUSTES PARA FONDO ANIMADO --- */
+
+/* 1. Hacemos que todas las secciones sean transparentes */
+section, .portfolio {
+  background: transparent !important;
+}
+
+/* 2. Efecto de cristal para las tarjetas (para que no tapen las partículas) */
+.about-card, 
+.skill-card, 
+.project-card-large, 
+.skill-category, 
+.social-card,
+.code-preview {
+  background: rgba(22, 27, 23, 0.65) !important; /* Fondo semi-transparente */
+  backdrop-filter: blur(8px); /* Desenfoque de fondo */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(125, 255, 184, 0.1);
+}
+
+/* 3. El canvas de partículas debe estar al fondo pero permitir clics */
+#tsparticles {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Detrás de todo */
+  pointer-events: all; /* IMPORTANTE: para que detecte el mouse */
+}
+
+/* 4. Aseguramos que el body sea el que tenga el color oscuro de base */
+body {
+  background-color: var(--bg-dark);
+  background: radial-gradient(circle at 50% 50%, #1a3329 0%, #0f1310 100%);
+  background-attachment: fixed;
+}
+canvas {
+  display: block !important;
+  pointer-events: none; /* Evita que el fondo "bloquee" tus botones */
 }
