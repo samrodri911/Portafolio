@@ -11,7 +11,7 @@ export const profile = {
   resumeUrl: '#',
   // CORREGIDO: Las propiedades estaban dentro de 'socials', pero las usabas directamente en profile
   github: 'https://github.com/samrodri911',
-  linkedin: 'https://www.linkedin.com/in/samuel-rodriguez-aa0a4036a', // Agrega tu link real
+  linkedin: 'https://www.linkedin.com/in/samuelrodriguezsolarte', // Agrega tu link real
   summary: "I am a Systems and Computing Engineering student at Pontificia Universidad Javeriana Cali, focused on building scalable full-stack applications. Currently advancing my hands-on development experience while maintaining a strong academic foundation."
 }
 
