@@ -36,6 +36,10 @@ export const translations = {
         {
           title: 'Game-Ants Engine',
           description: 'A performance-focused video game emphasizing Object-Oriented Programming (OOP), manual memory management, and efficient algorithm design for complex game mechanics.'
+        },
+        {
+          title: 'Sell-Buy',
+          description: 'Smart marketplace that optimizes buying and selling experiences through AI. The system automates description generation and suggests competitive pricing for published products.'
         }
       ]
     },
@@ -120,6 +124,10 @@ export const translations = {
         {
           title: 'Motor Game-Ants',
           description: 'Un videojuego enfocado en el rendimiento que enfatiza la Programación Orientada a Objetos (POO), gestión manual de memoria y diseño de algoritmos eficientes para mecánicas complejas.'
+        },
+        {
+          title: 'Sell&Buy',
+          description: 'Marketplace inteligente que optimiza las experiencias de compra y venta mediante IA. El sistema automatiza la generación de descripciones y sugiere precios competitivos para productos publicados.'
         }
       ]
     },

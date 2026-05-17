@@ -63,5 +63,13 @@ export const projects = [
     tech: ['C++', 'OOP', 'Algorithms'],
     github: 'https://github.com/samrodri911/Game-Ants.git',
     image: 'hormigas.png'
+  },
+  {
+    title: 'Sell&Buy',
+    description: 'Smart marketplace that optimizes buying and selling experiences through AI. The system automates description generation and suggests competitive pricing for published products.',
+    tech: ['React', 'Node.js', 'Vercel', 'AI Integration'],
+    github: 'https://github.com/samrodri911/Sell-Buy',
+    live: 'https://sellandbuy-five.vercel.app/',
+    image: 'Sell&Buy.png',
   }
 ]
